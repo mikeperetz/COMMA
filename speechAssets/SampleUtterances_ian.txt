@@ -1,0 +1,439 @@
+ResetBillsIntent clear
+ResetBillsIntent clear a user
+ResetBillsIntent clear user
+ResetBillsIntent clear amounts
+ResetBillsIntent clear numbers
+ResetBillsIntent clear balance
+ResetBillsIntent clear last user
+ResetBillsIntent clear last accounts
+ResetBillsIntent clear last bills
+ResetBillsIntent clear last amounts
+ResetBillsIntent clear last numbers
+ResetBillsIntent clear last balance
+ResetBillsIntent clear my bills
+ResetBillsIntent clear my user
+ResetBillsIntent clear my accounts
+ResetBillsIntent clear my amounts
+ResetBillsIntent clear my numbers
+ResetBillsIntent clear my balance
+ResetBillsIntent clear old user
+ResetBillsIntent clear old accounts
+ResetBillsIntent clear old bills
+ResetBillsIntent clear old amounts
+ResetBillsIntent clear old numbers
+ResetBillsIntent clear old balance
+ResetBillsIntent clear our user
+ResetBillsIntent clear our accounts
+ResetBillsIntent clear our bills
+ResetBillsIntent clear our amounts
+ResetBillsIntent clear our numbers
+ResetBillsIntent clear our balance
+ResetBillsIntent clear accounts
+ResetBillsIntent clear past user
+ResetBillsIntent clear past accounts
+ResetBillsIntent clear past bills
+ResetBillsIntent clear past amounts
+ResetBillsIntent clear past numbers
+ResetBillsIntent clear past balance
+ResetBillsIntent clear bills
+ResetBillsIntent clear that user
+ResetBillsIntent clear that balance
+ResetBillsIntent clear the user
+ResetBillsIntent clear the accounts
+ResetBillsIntent clear the bills
+ResetBillsIntent clear the amounts
+ResetBillsIntent clear the numbers
+ResetBillsIntent clear the balance
+ResetBillsIntent clear those accounts
+ResetBillsIntent clear those bills
+ResetBillsIntent clear those amounts
+ResetBillsIntent clear those numbers
+ResetBillsIntent delete
+ResetBillsIntent delete a user
+ResetBillsIntent delete user
+ResetBillsIntent delete amounts
+ResetBillsIntent delete numbers
+ResetBillsIntent delete balance
+ResetBillsIntent delete last user
+ResetBillsIntent delete last accounts
+ResetBillsIntent delete last bills
+ResetBillsIntent delete last amounts
+ResetBillsIntent delete last numbers
+ResetBillsIntent delete last balance
+ResetBillsIntent delete my bills
+ResetBillsIntent delete my user
+ResetBillsIntent delete my accounts
+ResetBillsIntent delete my amounts
+ResetBillsIntent delete my numbers
+ResetBillsIntent delete my balance
+ResetBillsIntent delete old user
+ResetBillsIntent delete old accounts
+ResetBillsIntent delete old bills
+ResetBillsIntent delete old amounts
+ResetBillsIntent delete old numbers
+ResetBillsIntent delete old balance
+ResetBillsIntent delete our user
+ResetBillsIntent delete our accounts
+ResetBillsIntent delete our bills
+ResetBillsIntent delete our amounts
+ResetBillsIntent delete our numbers
+ResetBillsIntent delete our balance
+ResetBillsIntent delete accounts
+ResetBillsIntent delete past user
+ResetBillsIntent delete past accounts
+ResetBillsIntent delete past bills
+ResetBillsIntent delete past amounts
+ResetBillsIntent delete past numbers
+ResetBillsIntent delete past balance
+ResetBillsIntent delete bills
+ResetBillsIntent delete that user
+ResetBillsIntent delete that balance
+ResetBillsIntent delete the user
+ResetBillsIntent delete the accounts
+ResetBillsIntent delete the bills
+ResetBillsIntent delete the amounts
+ResetBillsIntent delete the numbers
+ResetBillsIntent delete the balance
+ResetBillsIntent delete those accounts
+ResetBillsIntent delete those bills
+ResetBillsIntent delete those amounts
+ResetBillsIntent delete those numbers
+ResetBillsIntent erase
+ResetBillsIntent erase a user
+ResetBillsIntent erase user
+ResetBillsIntent erase amounts
+ResetBillsIntent erase numbers
+ResetBillsIntent erase balance
+ResetBillsIntent erase last user
+ResetBillsIntent erase last accounts
+ResetBillsIntent erase last bills
+ResetBillsIntent erase last amounts
+ResetBillsIntent erase last numbers
+ResetBillsIntent erase last balance
+ResetBillsIntent erase my bills
+ResetBillsIntent erase my user
+ResetBillsIntent erase my accounts
+ResetBillsIntent erase my amounts
+ResetBillsIntent erase my numbers
+ResetBillsIntent erase my balance
+ResetBillsIntent erase old user
+ResetBillsIntent erase old accounts
+ResetBillsIntent erase old bills
+ResetBillsIntent erase old amounts
+ResetBillsIntent erase old numbers
+ResetBillsIntent erase old balance
+ResetBillsIntent erase our user
+ResetBillsIntent erase our accounts
+ResetBillsIntent erase our bills
+ResetBillsIntent erase our amounts
+ResetBillsIntent erase our numbers
+ResetBillsIntent erase our balance
+ResetBillsIntent erase accounts
+ResetBillsIntent erase past user
+ResetBillsIntent erase past accounts
+ResetBillsIntent erase past bills
+ResetBillsIntent erase past amounts
+ResetBillsIntent erase past numbers
+ResetBillsIntent erase past balance
+ResetBillsIntent erase bills
+ResetBillsIntent erase that user
+ResetBillsIntent erase that balance
+ResetBillsIntent erase the user
+ResetBillsIntent erase the accounts
+ResetBillsIntent erase the bills
+ResetBillsIntent erase the amounts
+ResetBillsIntent erase the numbers
+ResetBillsIntent erase the balance
+ResetBillsIntent erase those accounts
+ResetBillsIntent erase those bills
+ResetBillsIntent erase those amounts
+ResetBillsIntent erase those numbers
+ResetBillsIntent forget
+ResetBillsIntent forget a user
+ResetBillsIntent forget user
+ResetBillsIntent forget amounts
+ResetBillsIntent forget numbers
+ResetBillsIntent forget balance
+ResetBillsIntent forget last user
+ResetBillsIntent forget last accounts
+ResetBillsIntent forget last bills
+ResetBillsIntent forget last amounts
+ResetBillsIntent forget last numbers
+ResetBillsIntent forget last balance
+ResetBillsIntent forget my bills
+ResetBillsIntent forget my user
+ResetBillsIntent forget my accounts
+ResetBillsIntent forget my amounts
+ResetBillsIntent forget my numbers
+ResetBillsIntent forget my balance
+ResetBillsIntent forget old user
+ResetBillsIntent forget old accounts
+ResetBillsIntent forget old bills
+ResetBillsIntent forget old amounts
+ResetBillsIntent forget old numbers
+ResetBillsIntent forget old balance
+ResetBillsIntent forget our user
+ResetBillsIntent forget our accounts
+ResetBillsIntent forget our bills
+ResetBillsIntent forget our amounts
+ResetBillsIntent forget our numbers
+ResetBillsIntent forget our balance
+ResetBillsIntent forget accounts
+ResetBillsIntent forget past user
+ResetBillsIntent forget past accounts
+ResetBillsIntent forget past bills
+ResetBillsIntent forget past amounts
+ResetBillsIntent forget past numbers
+ResetBillsIntent forget past balance
+ResetBillsIntent forget bills
+ResetBillsIntent forget that user
+ResetBillsIntent forget that balance
+ResetBillsIntent forget the user
+ResetBillsIntent forget the accounts
+ResetBillsIntent forget the bills
+ResetBillsIntent forget the amounts
+ResetBillsIntent forget the numbers
+ResetBillsIntent forget the balance
+ResetBillsIntent forget those accounts
+ResetBillsIntent forget those bills
+ResetBillsIntent forget those amounts
+ResetBillsIntent forget those numbers
+ResetBillsIntent remove
+ResetBillsIntent remove a user
+ResetBillsIntent remove user
+ResetBillsIntent remove amounts
+ResetBillsIntent remove numbers
+ResetBillsIntent remove balance
+ResetBillsIntent remove last user
+ResetBillsIntent remove last accounts
+ResetBillsIntent remove last bills
+ResetBillsIntent remove last amounts
+ResetBillsIntent remove last numbers
+ResetBillsIntent remove last balance
+ResetBillsIntent remove my bills
+ResetBillsIntent remove my user
+ResetBillsIntent remove my accounts
+ResetBillsIntent remove my amounts
+ResetBillsIntent remove my numbers
+ResetBillsIntent remove my balance
+ResetBillsIntent remove old user
+ResetBillsIntent remove old accounts
+ResetBillsIntent remove old bills
+ResetBillsIntent remove old amounts
+ResetBillsIntent remove old numbers
+ResetBillsIntent remove old balance
+ResetBillsIntent remove our user
+ResetBillsIntent remove our accounts
+ResetBillsIntent remove our bills
+ResetBillsIntent remove our amounts
+ResetBillsIntent remove our numbers
+ResetBillsIntent remove our balance
+ResetBillsIntent remove accounts
+ResetBillsIntent remove past user
+ResetBillsIntent remove past accounts
+ResetBillsIntent remove past bills
+ResetBillsIntent remove past amounts
+ResetBillsIntent remove past numbers
+ResetBillsIntent remove past balance
+ResetBillsIntent remove bills
+ResetBillsIntent remove that user
+ResetBillsIntent remove that balance
+ResetBillsIntent remove the user
+ResetBillsIntent remove the accounts
+ResetBillsIntent remove the bills
+ResetBillsIntent remove the amounts
+ResetBillsIntent remove the numbers
+ResetBillsIntent remove the balance
+ResetBillsIntent remove those accounts
+ResetBillsIntent remove those bills
+ResetBillsIntent remove those amounts
+ResetBillsIntent remove those numbers
+ResetBillsIntent reset
+ResetBillsIntent reset a user
+ResetBillsIntent reset user
+ResetBillsIntent reset amounts
+ResetBillsIntent reset numbers
+ResetBillsIntent reset balance
+ResetBillsIntent reset last user
+ResetBillsIntent reset last accounts
+ResetBillsIntent reset last bills
+ResetBillsIntent reset last amounts
+ResetBillsIntent reset last numbers
+ResetBillsIntent reset last balance
+ResetBillsIntent reset my bills
+ResetBillsIntent reset my user
+ResetBillsIntent reset my accounts
+ResetBillsIntent reset my amounts
+ResetBillsIntent reset my numbers
+ResetBillsIntent reset my balance
+ResetBillsIntent reset old user
+ResetBillsIntent reset old accounts
+ResetBillsIntent reset old bills
+ResetBillsIntent reset old amounts
+ResetBillsIntent reset old numbers
+ResetBillsIntent reset old balance
+ResetBillsIntent reset our user
+ResetBillsIntent reset our accounts
+ResetBillsIntent reset our bills
+ResetBillsIntent reset our amounts
+ResetBillsIntent reset our numbers
+ResetBillsIntent reset our balance
+ResetBillsIntent reset accounts
+ResetBillsIntent reset past user
+ResetBillsIntent reset past accounts
+ResetBillsIntent reset past bills
+ResetBillsIntent reset past amounts
+ResetBillsIntent reset past numbers
+ResetBillsIntent reset past balance
+ResetBillsIntent reset bills
+ResetBillsIntent reset that user
+ResetBillsIntent reset that balance
+ResetBillsIntent reset the user
+ResetBillsIntent reset the accounts
+ResetBillsIntent reset the bills
+ResetBillsIntent reset the amounts
+ResetBillsIntent reset the numbers
+ResetBillsIntent reset the balance
+ResetBillsIntent reset those accounts
+ResetBillsIntent reset those bills
+ResetBillsIntent reset those amounts
+ResetBillsIntent reset those numbers
+ResetBillsIntent wipe
+ResetBillsIntent wipe a user
+ResetBillsIntent wipe user
+ResetBillsIntent wipe amounts
+ResetBillsIntent wipe numbers
+ResetBillsIntent wipe balance
+ResetBillsIntent wipe last user
+ResetBillsIntent wipe last accounts
+ResetBillsIntent wipe last bills
+ResetBillsIntent wipe last amounts
+ResetBillsIntent wipe last numbers
+ResetBillsIntent wipe last balance
+ResetBillsIntent wipe my bills
+ResetBillsIntent wipe my user
+ResetBillsIntent wipe my accounts
+ResetBillsIntent wipe my amounts
+ResetBillsIntent wipe my numbers
+ResetBillsIntent wipe my balance
+ResetBillsIntent wipe old user
+ResetBillsIntent wipe old accounts
+ResetBillsIntent wipe old bills
+ResetBillsIntent wipe old amounts
+ResetBillsIntent wipe old numbers
+ResetBillsIntent wipe old balance
+ResetBillsIntent wipe our user
+ResetBillsIntent wipe our accounts
+ResetBillsIntent wipe our bills
+ResetBillsIntent wipe our amounts
+ResetBillsIntent wipe our numbers
+ResetBillsIntent wipe our balance
+ResetBillsIntent wipe accounts
+ResetBillsIntent wipe past user
+ResetBillsIntent wipe past accounts
+ResetBillsIntent wipe past bills
+ResetBillsIntent wipe past amounts
+ResetBillsIntent wipe past numbers
+ResetBillsIntent wipe past balance
+ResetBillsIntent wipe bills
+ResetBillsIntent wipe that user
+ResetBillsIntent wipe that balance
+ResetBillsIntent wipe the user
+ResetBillsIntent wipe the accounts
+ResetBillsIntent wipe the bills
+ResetBillsIntent wipe the amounts
+ResetBillsIntent wipe the numbers
+ResetBillsIntent wipe the balance
+ResetBillsIntent wipe those accounts
+ResetBillsIntent wipe those bills
+ResetBillsIntent wipe those amounts
+ResetBillsIntent wipe those numbers
+
+TellBalancesIntent tell me current balances
+TellBalancesIntent tell me the current balances
+TellBalancesIntent tell me the balances
+TellBalancesIntent tell us current balance
+TellBalancesIntent tell us the current balances
+TellBalancesIntent tell us the balances
+TellBalancesIntent the current balance
+TellBalancesIntent the balances
+TellBalancesIntent view balances
+TellBalancesIntent view amounts
+TellBalancesIntent what is the balance
+TellBalancesIntent what amounts does everything have
+TellBalancesIntent what balances does everything have
+TellBalancesIntent what's the balance
+TellBalancesIntent how much is in each account
+TellBalancesIntent how much is each balance
+
+TellTotalIntent how much do I have
+TellTotalIntent how much money do I have
+TellTotalIntent how much do I have in total
+TellTotalIntent what is the total
+TellTotalIntent how much do I have right now
+TellTotalIntent how much money do I have right now
+TellTotalIntent how much do I actually have right now
+TellTotalIntent how much money do I actually have right now
+
+AddBillIntent {Initialize} {BillType} bill
+AddBillIntent {Initialize} new {BillType}
+AddBillIntent {Initialize} new {BillType} bill
+AddBillIntent {Initialize} a new {BillType}
+AddBillIntent {Initialize} a new {BillType} bill
+AddBillIntent {Initialize} {BillType}
+
+AddAccountIntent {Initialize} {AccountType} account
+AddAccountIntent {Initialize} account
+AddAccountIntent {Initialize} an account
+AddAccountIntent {Initialize} a {AccountType} account
+AddAccountIntent {Initialize} new {AccountType} account
+AddAccountIntent {Initialize} new account
+AddAccountIntent {Initialize} a new {AccountType} account
+AddAccountIntent {Initialize} a new account
+
+DepositIntent {DepositPhrase} {AccountType} {Amount}
+DepositIntent {DepositPhrase} {AccountType} {Amount} dollars
+DepositIntent {DepositPhrase} {Amount} {AccountType}
+DepositIntent {DepositPhrase} {Amount} dollars {AccountType}
+DepositIntent {DepositPhrase} {Amount} into {AccountType}
+DepositIntent {Amount} into {AccountType}
+DepositIntent {Amount} more for {AccountType}
+DepositIntent {Amount} for {AccountType}
+DepositIntent {DepositPhrase} {AccountType} {Amount} more dollars
+DepositIntent {Amount} more dollars for {AccountType}
+DepositIntent {Amount} dollars for {AccountType}
+
+WithdrawIntent {WithdrawPhrase} {AccountType} {Amount}
+WithdrawIntent {WithdrawPhrase} {AccountType} {Amount} dollars
+WithdrawIntent {WithdrawPhrase} {Amount} {AccountType}
+WithdrawIntent {WithdrawPhrase} {Amount} dollars {AccountType}
+WithdrawIntent {WithdrawPhrase} {Amount} into {AccountType}
+WithdrawIntent {Amount} from {AccountType}
+WithdrawIntent {Amount} less of {AccountType}
+WithdrawIntent {WithdrawPhrase} {AccountType} {Amount} less dollars
+WithdrawIntent {Amount} less dollars from {AccountType}
+WithdrawIntent {Amount} dollars for {AccountType}
+
+ValidateIntent {UserName}
+
+
+
+
+
+
+TellRewardsIntent what is my rewards
+TellRewardsIntent rewards
+TellRewardsIntent what are my rewards
+TellRewardsIntent how many rewards do i have
+TellRewardsIntent credit card rewards
+TellRewardsIntent how many rewards on my credit card
+TellRewardsIntent how many rewards do i have on my credit card
+TellRewardsIntent rewards balance
+TellRewardsIntent what is my rewards balance
+TellRewardsIntent how much do i have on my rewards
+TellRewardsIntent how many points on my credit card
+TellRewardsIntent how many points do i have
+TellRewardsIntent how many miles do i have
+TellRewardsIntent how many credit card miles do i have
+TellRewardsIntent how many rewards miles do i have
+TellRewardsIntent how much rewards do i have

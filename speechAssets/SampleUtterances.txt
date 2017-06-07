@@ -1,0 +1,131 @@
+ResetBillsIntent reset
+
+TellBalancesIntent tell me current {Balance}
+TellBalancesIntent tell me the current {Balance}
+TellBalancesIntent tell me the {Balance}
+TellBalancesIntent tell us current {Balance}
+TellBalancesIntent tell us the current {Balance}
+TellBalancesIntent tell us the {Balance}
+TellBalancesIntent the current {Balance}
+TellBalancesIntent the {Balance}
+TellBalancesIntent view {Balance}
+TellBalancesIntent view amounts
+TellBalancesIntent what is the {Balance}
+TellBalancesIntent what amounts does everything have
+TellBalancesIntent what {Balance} does everything have
+TellBalancesIntent what's the {Balance}
+TellBalancesIntent how much is in each account
+TellBalancesIntent how much is each {Balance}
+
+TellTotalIntent how much money will I have at {Scope}
+TellTotalIntent how much money will I have by next {Scope}
+TellTotalIntent how much money will I have
+TellTotalIntent how much do I actually have
+TellTotalIntent what is my net balance at
+TellTotalIntent what is my net total
+TellTotalIntent how much do I have factoring in my bills
+TellTotalIntent how much do I have accounting for my bills
+
+AddBillIntent {Initialize} a {BillType} for {Amount} due on {Date}
+AddBillIntent {Initialize} a {BillType} for {Amount} due at {Date}
+AddBillIntent {Initialize} {BillType} {Date} {Amount}
+AddBillIntent {Initialize} new {BillType} {Amount} {Date}
+AddBillIntent {Initialize} {Amount} {Date} {BillType}
+AddBillIntent {Initialize} {Date} {BillType} {Amount}
+AddBillIntent {Initialize} a new {BillType} bill
+AddBillIntent {Initialize} {BillType}
+AddBillIntent {BillType} {Date} {Amount}
+AddBillIntent new {BillType} {Amount} {Date}
+AddBillIntent {Amount} {Date} {BillType}
+AddBillIntent {Date} {BillType} {Amount}
+
+AddAccountIntent {Initialize} {AccountType} account
+AddAccountIntent {Initialize} account
+AddAccountIntent {Initialize} an account
+AddAccountIntent {Initialize} a {AccountType} account
+AddAccountIntent {Initialize} new {AccountType} account
+AddAccountIntent {Initialize} new account
+AddAccountIntent {Initialize} a new {AccountType} account
+AddAccountIntent {Initialize} a new account
+
+DepositIntent {DepositPhrase} {AccountType} {Amount}
+DepositIntent {DepositPhrase} {AccountType} {Amount} dollars
+DepositIntent {DepositPhrase} {Amount} {AccountType}
+DepositIntent {DepositPhrase} {Amount} dollars {AccountType}
+DepositIntent {DepositPhrase} {Amount} into {AccountType}
+DepositIntent {Amount} into {AccountType}
+DepositIntent {Amount} more for {AccountType}
+DepositIntent {Amount} for {AccountType}
+DepositIntent {DepositPhrase} {AccountType} {Amount} more dollars
+DepositIntent {Amount} more dollars for {AccountType}
+DepositIntent {Amount} dollars for {AccountType}
+
+WithdrawIntent {WithdrawPhrase} {AccountType} {Amount}
+WithdrawIntent {WithdrawPhrase} {AccountType} {Amount} dollars
+WithdrawIntent {WithdrawPhrase} {Amount} {AccountType}
+WithdrawIntent {WithdrawPhrase} {Amount} dollars {AccountType}
+WithdrawIntent {WithdrawPhrase} {Amount} into {AccountType}
+WithdrawIntent {Amount} from {AccountType}
+WithdrawIntent {Amount} less of {AccountType}
+WithdrawIntent {WithdrawPhrase} {AccountType} {Amount} less dollars
+WithdrawIntent {Amount} less dollars from {AccountType}
+WithdrawIntent {Amount} dollars for {AccountType}
+
+ValidateIntent {UserName}
+
+TellRewardsIntent what is my rewards
+TellRewardsIntent what are my rewards
+TellRewardsIntent how many rewards do i have
+TellRewardsIntent how many rewards on my credit card
+TellRewardsIntent how many rewards do i have on my credit card
+TellRewardsIntent rewards balance
+TellRewardsIntent what is my rewards balance
+TellRewardsIntent how much do i have on my rewards
+TellRewardsIntent how many points on my credit card
+TellRewardsIntent how many points do i have
+TellRewardsIntent how many miles do i have
+TellRewardsIntent how many credit card miles do i have
+TellRewardsIntent how many rewards miles do i have
+TellRewardsIntent how much rewards do i have
+TellRewardsIntent what is my points
+TellRewardsIntent what are my points
+TellRewardsIntent how many points
+TellRewardsIntent how many credit points
+TellRewardsIntent how many credit card points
+TellRewardsIntent what are my credit points
+TellRewardsIntent what are my credit card points
+TellRewardsIntent what is my points balance
+TellRewardsIntent tell me how many rewards i have
+TellRewardsIntent tell me how many points i have
+TellRewardsIntent tell me how many miles i have
+TellRewardsIntent tell me how many rewards do i have on my credit card
+TellRewardsIntent tell me how many credit rewards i have
+TellRewardsIntent tell me how many credit card rewards i have
+
+TellRewardsOptionsIntent what can i do with my rewards
+TellRewardsOptionsIntent what can i do with my rewards balance
+TellRewardsOptionsIntent reward options
+TellRewardsOptionsIntent redeem rewards
+TellRewardsOptionsIntent credit card rewards options
+TellRewardsOptionsIntent i'd like to redeem my credit card rewards
+TellRewardsOptionsIntent do i have enough credit card rewards
+TellRewardsOptionsIntent credit rewards options
+TellRewardsOptionsIntent tell me about my rewards
+TellRewardsOptionsIntent tell me about my credit rewards
+TellRewardsOptionsIntent tell me about my credit card rewards
+TellRewardsOptionsIntent how can i spend my credit card rewards
+TellRewardsOptionsIntent how can i spend my credit rewards
+TellRewardsOptionsIntent what can i do with my credit card points
+TellRewardsOptionsIntent what can i do with my credit points
+TellRewardsOptionsIntent what can i do with my miles
+TellRewardsOptionsIntent what can i do with my credit miles
+TellRewardsOptionsIntent what can i do with my credit card miles
+
+TellMinimumPaymentIntent minimum payment
+TellMinimumPaymentIntent minimum
+TellMinimumPaymentIntent how much do I need to pay on my credit card
+TellMinimumPaymentIntent what is the lowest payment on my credit card
+
+CanIAffordIntent can I afford to buy a {Product}
+CanIAffordIntent can I afford to buy a {Product} for my son
+CanIAffordIntent can I afford a {Product}

@@ -1,0 +1,129 @@
+{
+  "intents": [
+    {
+      "intent": "AddAccountIntent",
+      "slots": [
+        {
+          "name": "AccountType",
+          "type": "LIST_OF_ACCOUNT_TYPES"
+        },
+        {
+          "name": "Initialize",
+          "type": "LIST_OF_INITIALIZE_PHRASES"
+        }
+      ]
+    },
+    {
+      "intent": "AddBillIntent",
+      "slots": [
+        {
+          "name": "BillType",
+          "type": "LIST_OF_BILL_TYPES"
+        },
+        {
+          "name": "Initialize",
+          "type": "LIST_OF_INITIALIZE_PHRASES"
+        },
+        {
+          "name": "Date",
+          "type": "LIST_OF_BILL_DATE_TYPES"
+        },
+        {
+          "name": "Amount",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "ValidateIntent",
+      "slots": [
+        {
+          "name": "UserName",
+          "type": "LIST_OF_NAMES"
+        }
+      ]
+    },
+    {
+      "intent": "TellRewardsIntent"
+    },
+    {
+      "intent": "TellRewardsOptionsIntent"
+    },
+    {
+      "intent": "TellMinimumPaymentIntent"
+    },
+    {
+      "intent": "DepositIntent",
+      "slots": [
+        {
+          "name": "AccountType",
+          "type": "LIST_OF_ACCOUNT_TYPES"
+        },
+        {
+          "name": "Amount",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "DepositPhrase",
+          "type": "LIST_OF_DEPOSIT_PHRASES"
+        }
+      ]
+    },
+    {
+      "intent": "WithdrawIntent",
+      "slots": [
+        {
+          "name": "AccountType",
+          "type": "LIST_OF_ACCOUNT_TYPES"
+        },
+        {
+          "name": "Amount",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "WithdrawPhrase",
+          "type": "LIST_OF_WITHDRAWAL_PHRASES"
+        }
+      ]
+    },
+    {
+      "intent": "ResetBillsIntent"
+    },
+    {
+      "intent": "TellBalancesIntent",
+      "slots": [
+        {
+          "name": "Balance",
+          "type": "LIST_OF_BALANCE_PHRASES"
+        }
+      ]
+    },
+    {
+      "intent": "TellTotalIntent",
+      "slots": [
+        {
+          "name": "Scope",
+          "type": "LIST_OF_SCOPE_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "CanIAffordIntent",
+      "slots": [
+        {
+          "name": "Product",
+          "type": "LIST_OF_AMAZON_PRODUCTS"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
