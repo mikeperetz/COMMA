@@ -129,3 +129,7 @@ TellMinimumPaymentIntent what is the lowest payment on my credit card
 CanIAffordIntent can I afford to buy a {Product}
 CanIAffordIntent can I afford to buy a {Product} for my son
 CanIAffordIntent can I afford a {Product}
+
+TellDebtIntent am I in debt
+TellDebtIntent do I have debt
+TellDebtIntent debt
