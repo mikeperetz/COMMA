@@ -124,6 +124,9 @@
     },
     {
       "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "TellDebtIntent"
     }
   ]
 }
