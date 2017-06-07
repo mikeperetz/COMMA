@@ -887,6 +887,34 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
         });
     };
+ 
+    /**
+     * TODO: Finish this method
+     * @param intent
+     * @param session
+     * @param response
+     * @constructor
+     */
+    intentHandlers.TellDebtIntent = function (intent, session, response) {
+        console.log("TellDebtIntent");
+        if (session.attributes.currentUser.id == "0") {
+            response.ask("I'm sorry, Who am I speaking with?", " . ");
+        }
+        var cardAccount = "Credit Card";
+        var checkingAccount = "Checking";
+        storage.loadUser(session, function (currentUser) {
+            if (currentUser.data.accounts[cardAccount] === "0") {
+                response.ask("It appears that you don't have a credit card account yet. You must open one first. Anything else?", " . ");
+            }
+            var debt =  session.attributes.pendingCreditCardBalance - session.attributes.pendingCheckingBalance ;
+
+            if (debt > 0) {
+                response.ask("You have " + debt + " dollars in debt. Anything else?", " . ");
+            } else {
+                response.ask("Congratulations you are debt free. Anything else?", " . ");
+            }
+        });
+    };
 
     /**
      * TODO: Make into something practical
