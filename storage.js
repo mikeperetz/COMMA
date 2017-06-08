@@ -1,6 +1,6 @@
 /**
  Copyright Capial One Financial Corp.
- Ian Fitzgerald, Michael Peretz, Kevin Lin.
+
  */
 
 'use strict';
@@ -28,9 +28,14 @@ var storage = (function () {
                     "Credit Card": "0",
                     "Checking": "0",
                     "Savings": "0"
+                },
+                expenses : {
+                    food: [],
+                    entertainment: []
                 }
             };
         }
+
         this._session = session;
     }
 

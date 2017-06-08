@@ -164,7 +164,24 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         request.end();
     };
 
-    //TODO:       "text": "The best match that I can find isversion=\"1.0\" ?>Amazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon EchoAmazon Echo selling for $1.7999179991799918e+82. Your bills will leave you about $1477.599999999999 left to spend at the end of this month. So, I'm sorry, but you simply cannot afford it. Anything else?"
+
+    intentHandlers.AuthenticateIntent = function(intent, session, response){
+
+        // if (intent.slots.Code.value == "new code"){
+        //         code = "temp";
+        //         sesssion.attributes.code = code;
+        //         response.askWithCard("I have sent a new code word to your alexa app. Please speak it aloud.", "Please say the code I sent to your alexa app", "Code:", code);
+        // }
+
+        // if (intent.slots.Code.value != session.attributes.code){
+        //     response.ask("That's incorrect. Please try again. If you would like a new code, say, new code.", "Please try again. If you would like a new code, say, new code");
+
+        // }
+
+        response.ask("Lit. What would you like to do now?", "What would you like to do?");
+
+    }
+
 
     //TODO: Numbers are too big. Manually edit to show off
     /**
@@ -194,14 +211,17 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         storage.loadUser(session, function (currentUser) {
 
             if (currentUser.data.id == "0") {//then create a new customer
+
+                
+
                 var args = {
                     "first_name": newUserName,
-                    "last_name": "Lin",
+                    "last_name": "Lit",
                     "address": {
                         "street_number": "90",
                         "street_name": "Springfield",
-                        "city": "Alsip",
-                        "state": "IL",
+                        "city": "Richmond",
+                        "state": "VA",
                         "zip": "60803"
                     }
                 };
@@ -213,7 +233,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
                     session.attributes.pendingCreditCardBalance = 0;
 
                     currentUser.save(function () {
-                        response.ask("Nice to meet you, " + session.attributes.currUserName + "! What would you like to do now?", "What would you like to do?");
+                       response.askWithCard("Nice to meet you, " + session.attributes.currUserName + "! You are now registered in my system. Let's confirm your identity. Please say the code I just sent to your alexa app.", "Please say the code I just sent to your alexa app.", "Code:", "covfefe");
                     });
                 }, intent, session, response);
             }
@@ -223,7 +243,10 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
                     setPendingSavingsBalance(currentUser, function (currentUser, resultBody, intent, session, response) {
                         setPendingCreditCardBalance(currentUser, function (currentUser, resultBody, intent, session, response) {
                             //currentUser.save(function() {
-                            response.ask("Welcome back, " + session.attributes.currUserName + "! What would you like to do now?", "What would you like to do?");
+                            var code = "covfefe";
+                            session.attributes.code = code;
+                            response.askWithCard("Welcome back, " + session.attributes.currUserName + "! Let's confirm your identity. Please say the code I just sent to your alexa app.", "Please say the code I just sent to your alexa app.", "Code:", code);
+                            
                             //});
                         }, intent, session, response);
                     }, intent, session, response);
