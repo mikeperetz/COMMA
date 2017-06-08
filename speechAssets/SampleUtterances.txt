@@ -137,5 +137,8 @@ TellDebtIntent debt
 AuthenticateIntent {Code}
 
 FindBankIntent where is the closest bank
+FindBankIntent I want to deposit cash
+
+WhatIDoIntent What can I do
 
 CategorizedBudgetingIntent {Amount} on {Expense}

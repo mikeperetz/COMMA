@@ -1146,6 +1146,10 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
         });
     };
 
+    intentHandlers.WhatIDoIntent = function (intent, session, response) {
+        response.ask("I am the capital one money management assistant. I can transfer money between your accounts and help you budget your money. If I can't help you I can call your creditor or direct you to the nearest capital one bank")
+    }
+
     /**
      * TODO: Finish this method
      * @param intent
