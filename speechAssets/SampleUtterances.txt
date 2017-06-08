@@ -136,3 +136,4 @@ TellDebtIntent debt
 
 FindBankIntent Where is the closest bank
 
+AuthenticateIntent {Code}

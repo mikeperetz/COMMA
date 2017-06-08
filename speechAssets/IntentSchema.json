@@ -14,6 +14,15 @@
       ]
     },
     {
+      "intent": "AuthenticateIntent",
+      "slots": [
+        {
+          "name": "Code",
+          "type": "LIST_OF_CODES"
+        }
+      ]
+    },
+    {
       "intent": "AddBillIntent",
       "slots": [
         {
