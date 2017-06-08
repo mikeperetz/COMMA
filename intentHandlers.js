@@ -12,16 +12,28 @@
 var textHelper = require("./textHelper"),
     storage = require("./storage");
 var http = require("http");
+var https = require("https");
+
+
+//var GoogleMapsAPI = require('googlemaps');
+/*var publicConfig = {
+    key: 'AIzaSyBEwYAlB-YIpFUleSA3385hdjTDTJD3AkE',
+    stagger_time:       100, // for elevationPath
+    encode_polylines:   false,
+    secure:             true, // use https
+    //  proxy:              'http://127.0.0.1:9999' // optional, set a proxy for HTTP requests
+};*/
+//var gmAPI = new GoogleMapsAPI(publicConfig);
 
 //var amazon = require("./node_modules/amazon-product-api");
 
 var registerIntentHandlers = function (intentHandlers, skillContext) {
 
     var API_key = "7bfcbb288a7d3007846797ef4c837399";
-
     var Access_Key_ID = "AKIAJBQWG22FBRKPTMOA";
     var Secret_Access_Key = "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";
     var Associate_Tag = "kim0c-20";
+    var maps_key = 'AIzaSyBEwYAlB-YIpFUleSA3385hdjTDTJD3AkE';
 
 
     //var generateQueryString = require('./node_modules/amazon-product-api/lib/utils').generateQueryString;
@@ -36,6 +48,12 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             "content-type": "application/json"
         }
     };
+
+    var default_maps_options = {
+        hostname: "maps.googleapis.com",
+        key: 'AIzaSyBEwYAlB-YIpFUleSA3385hdjTDTJD3AkE'
+    }
+
 
     var default_amazon_options = {
         //http://webservices.amazon.com/onca/xml?AWSAccessKeyId=AKIAJBQWG22FBRKPTMOA&AssociateTag=kim0c-20&Keywords=xbox%20360&Operation=ItemSearch&ResponseGroup=Offers&SearchIndex=All&Service=AWSECommerceService&Timestamp=2016-08-01T23%3A32%3A53.000Z&Signature=pa1kvf%2BW3AK8ewWBXfLaN%2BjH67GRiYs8ZFEhmIpaBZ0%3D
@@ -104,6 +122,38 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
         request.end();
     };
+
+    var maps_API = function (methodType, path_URL, args, callback, intent, session, response) {
+        var options = default_maps_options;
+        options["method"] = methodType;
+        options["path"] = path_URL;
+
+        var request = https.request(options, function (result) {
+            result.setEncoding("UTF-8");
+
+            var resultBody = "";
+            result.on("data", function (chunk) {
+                resultBody += chunk;
+            });
+
+            result.on("end", function () {
+                console.log(resultBody);
+                //return callback(resultBody, intent, session, response);
+                return callback(JSON.parse(resultBody), intent, session, response);
+            });
+        });
+
+        request.on("error", function (error) {
+            console.log("problem with request: " + error.message);
+        });
+
+        if (args !== null) {
+            request.write(JSON.stringify(args), "utf8");
+        }
+
+        request.end();
+    };
+
 
 
 
@@ -1108,6 +1158,46 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     };
 
     /**
+     * TODO: Finish this method
+     * @param intent
+     * @param session
+     * @param response
+     * @constructor
+     */
+    intentHandlers.FindBankIntent = function (intent, session, response) {
+        console.log("FindBankIntent");
+        /*maps_API("GET", "/maps/api/place/nearbysearch/json?location=37.665476,-77.571158&radius=500&keyword=capital&type=bank&key=" + maps_key, null, function (resultBody, intent, session, response) {
+
+            var addr = resultBody.vicinity;
+            response.ask("I'm sorry I couldn't help you, the closest Capital One branch is at " + addr + ".");
+
+        }, intent, session, response);*/
+        var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.665476,-77.571158&radius=500&keyword=capital&type=bank&key=" + maps_key;
+        console.log(url);
+        var bank;
+        https.get(url, function(responseBody) {
+            var body ='';
+            responseBody.on('data', function(chunk) {
+                body += chunk;
+            });
+
+            responseBody.on('end', function() {
+                var places = JSON.parse(body);
+                var locations = places.results;
+                session.attributes.bank = locations[0].vicinity;
+                console.log(session.attributes.bank);
+                response.ask("I'm sorry I couldn't help you, the closest Capital One branch is at " + session.attributes.bank, " . ");
+
+            });
+        }).on('error', function(e) {
+            console.log("Got error: " + e.message);
+        });
+
+    }
+
+
+
+    /**
      * TODO: Make into something practical
      * @param intent
      * @param session
@@ -1177,6 +1267,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             return callback(currentUser, null, intent, session, response);
         }
     };
+
 
     var setPendingSavingsBalance = function (currentUser, callback, intent, session, response) {
         if (currentUser.data.accounts.Savings != "0") {

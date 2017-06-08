@@ -136,4 +136,6 @@ TellDebtIntent debt
 
 AuthenticateIntent {Code}
 
+FindBankIntent where is the closest bank
+
 CategorizedBudgetingIntent {Amount} on {Expense}
