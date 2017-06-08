@@ -530,6 +530,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
     intentHandlers.CategorizedBudgetingIntent = function (intent, session, response) {
 
+
         if (session.attributes.currentUser.id == "0") {//then create a new customer
             response.ask("I'm sorry. Who am I speaking with?", ". ");
         }
@@ -542,6 +543,8 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
         session.attributes.totalIncome = 0;
 
+
+
         storage.loadUser(session, function (currentUser) {
 
 
@@ -553,17 +556,21 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             var speechOutput = "";
 
             // todo: get all of users deposits for the month to determine income
-            nessie_API("GET", "/accounts/" + session.attributes.currentUser.id + "/deposits?key=" + API_key, null, function (resultBody, intent, session, response) {
 
-                for (var i in resultBody) {
-                    session.attributes.totalIncome += i.amount;
+            nessie_API("GET", "/accounts/" + currentUser.data.accounts.Checking + "/deposits?key=" + API_key, null, function (resultBody, intent, session, response) {
+
+
+
+                for (var i = 0; i < resultBody.length; i++) {
+                    console.log(i);
+                    session.attributes.totalIncome += parseInt(resultBody[i].amount);
                 }
 
                 //currentUser.data.expenses.push_back(resultBody.objectCreated._id);
                 currentUser.save(function () {
                     //housing budget @ 30% of income
 
-                    session.attributes.totalIncome = 0;
+
                     if (expenseType == "housing") {
                         var acceptableAmount = (session.attributes.totalIncome * .30);
                         if (amount > acceptableAmount) {
