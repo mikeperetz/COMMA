@@ -106,6 +106,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     };
 
 
+
     var amazon_API = function (query, callback, intent, session, response) {
 
         var options = default_amazon_options;
@@ -165,7 +166,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
     };
 
 
-    intentHandlers.AuthenticateIntent = function(intent, session, response){
+    intentHandlers.AuthenticateIntent = function (intent, session, response) {
 
         // if (intent.slots.Code.value == "new code"){
         //         code = "temp";
@@ -212,7 +213,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
             if (currentUser.data.id == "0") {//then create a new customer
 
-                
+
 
                 var args = {
                     "first_name": newUserName,
@@ -233,7 +234,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
                     session.attributes.pendingCreditCardBalance = 0;
 
                     currentUser.save(function () {
-                       response.askWithCard("Nice to meet you, " + session.attributes.currUserName + "! You are now registered in my system. Let's confirm your identity. Please say the code I just sent to your alexa app.", "Please say the code I just sent to your alexa app.", "Code:", "covfefe");
+                        response.askWithCard("Nice to meet you, " + session.attributes.currUserName + "! You are now registered in my system. Let's confirm your identity. Please say the code I just sent to your alexa app.", "Please say the code I just sent to your alexa app.", "Code:", "covfefe");
                     });
                 }, intent, session, response);
             }
@@ -246,7 +247,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
                             var code = "covfefe";
                             session.attributes.code = code;
                             response.askWithCard("Welcome back, " + session.attributes.currUserName + "! Let's confirm your identity. Please say the code I just sent to your alexa app.", "Please say the code I just sent to your alexa app.", "Code:", code);
-                            
+
                             //});
                         }, intent, session, response);
                     }, intent, session, response);
@@ -476,6 +477,173 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             });
         });
     };
+
+    intentHandlers.CategorizedBudgetingIntent = function (intent, session, response) {
+
+        if (session.attributes.currentUser.id == "0") {//then create a new customer
+            response.ask("I'm sorry. Who am I speaking with?", ". ");
+        }
+
+        var date = new Date();
+        var day = parseInt(("00" + date.getDate()).slice(-2));
+
+        var amount = parseInt(intent.slots.Amount.value);
+        var expenseType = intent.slots.Expense.value;
+
+        storage.loadUser(session, function (currentUser) {
+
+            session.attributes.pendingCheckingBalance = Math.floor(session.attributes.pendingCheckingBalance * 100) / 100;
+            session.attributes.pendingSavingsBalance = Math.floor(session.attributes.pendingSavingsBalance * 100) / 100;
+            session.attributes.pendingCreditCardBalance = Math.floor(session.attributes.pendingCreditCardBalance * 100) / 100;
+            var speechOutput = "";
+            var totalIncome = 5000;
+            //todo: get all of users deposits for the month to determine income
+            // nessie_API("GET", "/accounts/" + session.attributes.currentUser.id + "/deposits?key=" + API_key, null, function (resultBody, intent, session, response) {
+            //     var totalIncome = 0;
+            //     for (var i in resultBody) {
+            //         totalIncome += i.income;
+            //     }
+            //     //currentUser.data.expenses.push_back(resultBody.objectCreated._id);
+            //     currentUser.save(function () {
+            //         response.ask(speechOutput, " .");
+            //     });
+            // }, intent, session, response);
+
+            //housing budget @ 30% of income
+            if (expenseType == "housing") {
+                var acceptableAmount = (totalIncome * .30);
+                if (amount > acceptableAmount) {
+                    speechOutput += "I would recommend against spending that much on housing, it is more than thirty percent of your monthly income. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on housing. What would you like to do now?";                      
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford this housing reasonably since it is less than thirty percent of your income. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //utility budget @ 5% of income
+            if (expenseType == "utility") {
+                var acceptableAmount = (totalIncome * .5);
+                if (amount > acceptableAmount) {
+                    speechOutput += "I would recommend against spending that much on utilities, it is more than five percent of your monthly income. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on utilities. What would you like to do now?";                      
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford this cost of utilities reasonably since it is less than five percent of your income. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //transportation budget @ 15% of income
+            if (expenseType == "transportation") {
+                //todo: determine how much they have spent on transportation so far this month
+                var transportationExpenses = 350;
+                var acceptableAmount = (totalIncome * .5);
+                if (amount + transportationExpenses > acceptableAmount) {
+                    speechOutput += "I would recommend against spending that much on transportation, it is more than fifteen percent of your monthly income. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on transportation. What would you like to do now?";                     
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford it reasonably since you have spent less than fifteen percent of your income so far. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //health care budget @ 10% of income
+            if (expenseType == "health") {
+                var acceptableAmount = (totalIncome * .10);
+                if (amount > acceptableAmount) {
+                    speechOutput += "Unless it is immediately important for your health, it is more than ten percent of your monthly income. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on health care per month. What would you like to do now?";                      
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford this cost of health care reasonably since it is less than ten percent of your income. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //food budget @ 10% of income
+            if (expenseType == "food") {
+                //todo: determine how much they have spent on food so far this month.
+                var foodExpenses = 250;
+                var acceptableAmount = (totalIncome * .10);
+        
+                if (amount+foodExpenses > acceptableAmount) {
+                    speechOutput +="I would try to go to find a free food event at Capital One, you've already spent more than ten percent of your monthly income on food" +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on food care per month. What would you like to do now?";                      
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford to spend " + amount + "on food. What would you like to do now?";                      
+                    response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //savings budget @ 5% of income
+            if (expenseType == "savings") {
+                //todo: set the users income
+                var acceptableAmount = (totalIncome * .5);
+                if (amount > acceptableAmount) {
+                    speechOutput += "I would recommend against spending that much on savings, it is more than five percent of your monthly income. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on savings. What would you like to do now?";                      
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford to save this money reasonably since it is less than five percent of your income. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //debt budget @ 5% of income
+            if (expenseType == "debt payments") {
+                var acceptableAmount = (totalIncome * .5);
+                if (amount > acceptableAmount) {
+                    speechOutput += "I would recommend against spending that much on debt payments, it is more than five percent of your monthly income. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on savings. What would you like to do now?";                      
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford to pay off debt with this money reasonably since it is less than five percent of your income. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //charity budget @ 5% of income
+            if (expenseType == "charity") {
+                var acceptableAmount = (totalIncome * .5);
+                if (amount > acceptableAmount) {
+                    speechOutput += "I would recommend against spending that much on charity, it is more than five percent of your monthly income. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars on charity. What would you like to do now?";
+                    response.ask(speechOutput, "What would you like to do now.")
+                }
+                else {
+                    speechOutput += "You can afford to give " + amount + " to charity since it is less than five percent of your income.What would you like to do now?";
+                    response.ask(speechOutput, "What would you like to do now.")
+                }
+            }
+            //entertainment budget @ 7% of income
+            if (expenseType == "entertainment") {
+                var entertainmentExpense = 200;
+                var acceptableAmount = (totalIncome * .5);
+                if (amount + entertainmentExpense > acceptableAmount) {
+                    speechOutput += "You have already spent more than seven percent of your monthly income on entertainment. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars per month on entertainment. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford it. Its important to spend money on entertainment to keep yourself happy. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+            //misc personal budget @ 3% of income
+            if (expenseType == "misc personal") {
+                var personalExpense = 75;
+                var acceptableAmount = (totalIncome * .5);
+                if (amount + personalExpense > acceptableAmount) {
+                    speechOutput += "You have already spent more than three percent of your monthly income on personal items. " +
+                        "Try looking to spend less than " + acceptableAmount + " dollars per month on miscellaneous personal items. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
+                }
+                else {
+                    speechOutput += "You can afford to spend a this amount on your personal expenses, but keep in mind that only three percent of your income" +
+                        "should be allocated to miscellaneous personal items. What would you like to do now?";                      
+                        response.ask(speechOutput, "What would you like to do now.");
+                }
+            }
+
+            response.ask("Sorry, I didn't catch that.", "What would you like to do now?");
+
+        });
+    }
 
     /* TODO: Yes/no intents
 
@@ -910,7 +1078,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
         });
     };
- 
+
     /**
      * TODO: Finish this method
      * @param intent
@@ -929,7 +1097,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             if (currentUser.data.accounts[cardAccount] === "0") {
                 response.ask("It appears that you don't have a credit card account yet. You must open one first. Anything else?", " . ");
             }
-            var debt =  session.attributes.pendingCreditCardBalance - session.attributes.pendingCheckingBalance ;
+            var debt = session.attributes.pendingCreditCardBalance - session.attributes.pendingCheckingBalance;
 
             if (debt > 0) {
                 response.ask("You have " + debt + " dollars in debt. Anything else?", " . ");

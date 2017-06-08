@@ -135,3 +135,5 @@ TellDebtIntent do I have debt
 TellDebtIntent debt
 
 AuthenticateIntent {Code}
+
+CategorizedBudgetingIntent {Amount} on {Expense}

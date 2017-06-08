@@ -23,6 +23,19 @@
       ]
     },
     {
+      "intent": "CategorizedBudgetingIntent",
+      "slots":[
+        {
+          "name": "Amount",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Expense",
+          "type": "LIST_OF_EXPENSE_TYPES"
+        }
+      ]
+    },
+    {
       "intent": "AddBillIntent",
       "slots": [
         {
