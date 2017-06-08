@@ -556,7 +556,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             nessie_API("GET", "/accounts/" + session.attributes.currentUser.id + "/deposits?key=" + API_key, null, function (resultBody, intent, session, response) {
 
                 for (var i in resultBody) {
-                    session.attributes.totalIncome += i.income;
+                    session.attributes.totalIncome += i.amount;
                 }
 
                 //currentUser.data.expenses.push_back(resultBody.objectCreated._id);
