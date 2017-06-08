@@ -497,21 +497,21 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             session.attributes.pendingCreditCardBalance = Math.floor(session.attributes.pendingCreditCardBalance * 100) / 100;
             var speechOutput = "";
             var totalIncome = 5000;
-            //todo: get all of users deposits for the month to determine income
-            // nessie_API("GET", "/accounts/" + session.attributes.currentUser.id + "/deposits?key=" + API_key, null, function (resultBody, intent, session, response) {
-            //     var totalIncome = 0;
-            //     for (var i in resultBody) {
-            //         totalIncome += i.income;
-            //     }
-            //     //currentUser.data.expenses.push_back(resultBody.objectCreated._id);
-            //     currentUser.save(function () {
-            //         response.ask(speechOutput, " .");
-            //     });
-            // }, intent, session, response);
+            // todo: get all of users deposits for the month to determine income
+            nessie_API("GET", "/accounts/" + session.attributes.currentUser.id + "/deposits?key=" + API_key, null, function (resultBody, intent, session, response) {
+                session.attributes.totalIncome = 0;
+                for (var i in resultBody) {
+                    session.attributes.totalIncome += i.income;
+                }
+                //currentUser.data.expenses.push_back(resultBody.objectCreated._id);
+                currentUser.save(function () {
+                    response.ask(speechOutput, " .");
+                });
+            }, intent, session, response);
 
             //housing budget @ 30% of income
             if (expenseType == "housing") {
-                var acceptableAmount = (totalIncome * .30);
+                var acceptableAmount = (session.attributes.totalIncome * .30);
                 if (amount > acceptableAmount) {
                     speechOutput += "I would recommend against spending that much on housing, it is more than thirty percent of your monthly income. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars on housing. What would you like to do now?";                      
@@ -523,7 +523,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             }
             //utility budget @ 5% of income
             if (expenseType == "utility") {
-                var acceptableAmount = (totalIncome * .5);
+                var acceptableAmount = (session.attributes.totalIncome * .5);
                 if (amount > acceptableAmount) {
                     speechOutput += "I would recommend against spending that much on utilities, it is more than five percent of your monthly income. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars on utilities. What would you like to do now?";                      
@@ -537,7 +537,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             if (expenseType == "transportation") {
                 //todo: determine how much they have spent on transportation so far this month
                 var transportationExpenses = 350;
-                var acceptableAmount = (totalIncome * .5);
+                var acceptableAmount = (session.attributes.totalIncome * .5);
                 if (amount + transportationExpenses > acceptableAmount) {
                     speechOutput += "I would recommend against spending that much on transportation, it is more than fifteen percent of your monthly income. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars on transportation. What would you like to do now?";                     
@@ -549,7 +549,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             }
             //health care budget @ 10% of income
             if (expenseType == "health") {
-                var acceptableAmount = (totalIncome * .10);
+                var acceptableAmount = (session.attributes.totalIncome * .10);
                 if (amount > acceptableAmount) {
                     speechOutput += "Unless it is immediately important for your health, it is more than ten percent of your monthly income. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars on health care per month. What would you like to do now?";                      
@@ -563,7 +563,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             if (expenseType == "food") {
                 //todo: determine how much they have spent on food so far this month.
                 var foodExpenses = 250;
-                var acceptableAmount = (totalIncome * .10);
+                var acceptableAmount = (session.attributes.totalIncome * .10);
         
                 if (amount+foodExpenses > acceptableAmount) {
                     speechOutput +="I would try to go to find a free food event at Capital One, you've already spent more than ten percent of your monthly income on food" +
@@ -578,7 +578,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             //savings budget @ 5% of income
             if (expenseType == "savings") {
                 //todo: set the users income
-                var acceptableAmount = (totalIncome * .5);
+                var acceptableAmount = (session.attributes.totalIncome * .5);
                 if (amount > acceptableAmount) {
                     speechOutput += "I would recommend against spending that much on savings, it is more than five percent of your monthly income. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars on savings. What would you like to do now?";                      
@@ -590,7 +590,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             }
             //debt budget @ 5% of income
             if (expenseType == "debt payments") {
-                var acceptableAmount = (totalIncome * .5);
+                var acceptableAmount = (session.attributes.totalIncome * .5);
                 if (amount > acceptableAmount) {
                     speechOutput += "I would recommend against spending that much on debt payments, it is more than five percent of your monthly income. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars on savings. What would you like to do now?";                      
@@ -602,7 +602,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             }
             //charity budget @ 5% of income
             if (expenseType == "charity") {
-                var acceptableAmount = (totalIncome * .5);
+                var acceptableAmount = (session.attributes.totalIncome * .5);
                 if (amount > acceptableAmount) {
                     speechOutput += "I would recommend against spending that much on charity, it is more than five percent of your monthly income. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars on charity. What would you like to do now?";
@@ -616,7 +616,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             //entertainment budget @ 7% of income
             if (expenseType == "entertainment") {
                 var entertainmentExpense = 200;
-                var acceptableAmount = (totalIncome * .5);
+                var acceptableAmount = (session.attributes.totalIncome * .5);
                 if (amount + entertainmentExpense > acceptableAmount) {
                     speechOutput += "You have already spent more than seven percent of your monthly income on entertainment. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars per month on entertainment. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
@@ -628,7 +628,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             //misc personal budget @ 3% of income
             if (expenseType == "misc personal") {
                 var personalExpense = 75;
-                var acceptableAmount = (totalIncome * .5);
+                var acceptableAmount = (session.attributes.totalIncome * .5);
                 if (amount + personalExpense > acceptableAmount) {
                     speechOutput += "You have already spent more than three percent of your monthly income on personal items. " +
                         "Try looking to spend less than " + acceptableAmount + " dollars per month on miscellaneous personal items. What would you like to do now?";                      response.ask(speechOutput, "What would you like to do now.");
