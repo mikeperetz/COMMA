@@ -117,6 +117,19 @@
       ]
     },
     {
+      "intent": "GetDistance",
+      "slots": [
+        {
+          "name": "Start",
+          "type": "AMAZON.US_CITY"
+        },
+        {
+          "name": "Finish",
+          "type": "AMAZON.US_CITY"
+        }
+      ]
+    },
+    {
       "intent": "AMAZON.HelpIntent"
     },
     {
@@ -127,6 +140,9 @@
     },
     {
       "intent": "TellDebtIntent"
+    },
+    {
+      "intent": "FindBankIntent"
     }
   ]
 }

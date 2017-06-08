@@ -133,3 +133,6 @@ CanIAffordIntent can I afford a {Product}
 TellDebtIntent am I in debt
 TellDebtIntent do I have debt
 TellDebtIntent debt
+
+FindBankIntent Where is the closest bank
+
